@@ -20,7 +20,8 @@ module.exports = {
    * @api public
    */
 
-  serialize(token, options = {}) {
+  serialize(token, options) {
+    options = (typeof options !== 'undefined') ? options : {}
     return cookie.serialize(options.name || 'access_token', token, Object.assign({
       httpOnly: true,
       secure: true
